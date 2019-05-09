@@ -23,7 +23,7 @@ public:
     int findMin();
     int findMax();
     int findP();
-    int isElem(int elem);
+    bool isElem(int elem);
     MySet operator+ (MySet);
     MySet operator- (MySet);
     MySet operator/ (MySet);
