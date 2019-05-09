@@ -18,18 +18,20 @@ public:
     MySet(const MySet &obj);
     ~MySet();
     void addElem(int elem);
+    int *getElems() const;
     void deleteElem(int ind);
-    //void generateSet();
     int findMin();
     int findMax();
-    int findP();
+    int findP() const;
     bool isElem(int elem);
     MySet operator+ (MySet);
     MySet operator- (MySet);
     MySet operator/ (MySet);
     MySet* operator= (const MySet &b);
-    friend Ui::MainWindow* operator<< (MySet, Ui::MainWindow *ui);
-    friend Ui::MainWindow* operator>> (MySet, Ui::MainWindow *ui);
+    friend Ui::MainWindow* operator<< (Ui::MainWindow *ui, MySet const &a);
+    friend Ui::MainWindow* operator>> (Ui::MainWindow *ui, MySet &a);
+
 };
+
 
 #endif // MYSET_H

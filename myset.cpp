@@ -1,4 +1,10 @@
 #include "myset.h"
+#include <QString>
+
+int *MySet::getElems() const
+{
+    return elems;
+}
 
 MySet::MySet()
 {
@@ -14,10 +20,7 @@ MySet::MySet(int *arr, int arrSize)
     setSize = arrSize;
     for (int i = 0; i < arrSize; i++)
     {
-        if(isElem(arr[i]))
-        {
-            elems[i] = arr[i];
-        }
+        this->addElem(arr[i]);
     }
 }
 
@@ -28,7 +31,7 @@ MySet::MySet(const MySet &obj)
     setSize = obj.setSize;
     for (int i = 0; i < obj.setSize; i++)
     {
-        elems[i] = obj.elems[i];
+        this->addElem(obj.elems[i]);
     }
 }
 
@@ -39,7 +42,7 @@ MySet::~MySet()
 
 void MySet::addElem(int newElem)
 {
-    if(isElem(newElem))
+    if(!isElem(newElem))
     {
         if(freeSize == setSize)
         {
@@ -105,7 +108,7 @@ int MySet::findMax()
     return max;
 }
 
-int MySet::findP()
+int MySet::findP() const
 {
     return setSize;
 }
@@ -186,3 +189,4 @@ MySet* MySet::operator=(const MySet &b)
     }
     return this;
 }
+
