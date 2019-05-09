@@ -26,6 +26,12 @@ private slots:
 
     void on_tableWidget_cellChanged(int row, int column);
 
+    void on_ShowMEMOBtn_clicked();
+
+    void on_EnterMEMOBtn_clicked();
+
+    void on_ClearSetBtn_clicked();
+
 private:
     MySet a;
     Ui::MainWindow *ui;

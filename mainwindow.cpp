@@ -64,6 +64,7 @@ void MainWindow::on_enterElemsBtn_clicked()
 
 void MainWindow::on_ShowElemsBtn_clicked()
 {
+    on_clearGrid_clicked();
     ui<<a;
 
 }
@@ -74,4 +75,32 @@ void MainWindow::on_tableWidget_cellChanged(int row, int column)
     {
         ui->tableWidget->insertColumn(ui->tableWidget->columnCount());
     }
+}
+
+void MainWindow::on_ShowMEMOBtn_clicked()
+{
+    QString str;
+    for(int i = 0; i < a.findP(); i++)
+    {
+        str += QString::number(a.getElems()[i]) + ", ";
+    }
+    ui->plainTextEdit->setPlainText(str);
+}
+
+void MainWindow::on_EnterMEMOBtn_clicked()
+{
+    QString str = ui->plainTextEdit->toPlainText();
+    QStringList elemsList = str.split(",");
+    for(int i = 0; i < elemsList.length(); i++)
+    {
+        if(elemsList[i] != ' ' && elemsList[i] != "")
+        {
+            a.addElem(elemsList[i].toInt());
+        }
+    }
+}
+
+void MainWindow::on_ClearSetBtn_clicked()
+{
+    a.clear();
 }

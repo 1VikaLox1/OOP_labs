@@ -60,12 +60,12 @@
      <rect>
       <x>580</x>
       <y>50</y>
-      <width>80</width>
+      <width>101</width>
       <height>25</height>
      </rect>
     </property>
     <property name="text">
-     <string>Enter elems</string>
+     <string>Enter from grid</string>
     </property>
    </widget>
    <widget class="QPushButton" name="ShowElemsBtn">
@@ -78,7 +78,46 @@
      </rect>
     </property>
     <property name="text">
-     <string>Show elems</string>
+     <string>Show on grid</string>
+    </property>
+   </widget>
+   <widget class="QPushButton" name="EnterMEMOBtn">
+    <property name="geometry">
+     <rect>
+      <x>580</x>
+      <y>140</y>
+      <width>111</width>
+      <height>25</height>
+     </rect>
+    </property>
+    <property name="text">
+     <string>Enter from MEMO</string>
+    </property>
+   </widget>
+   <widget class="QPushButton" name="ShowMEMOBtn">
+    <property name="geometry">
+     <rect>
+      <x>580</x>
+      <y>180</y>
+      <width>101</width>
+      <height>25</height>
+     </rect>
+    </property>
+    <property name="text">
+     <string>Show on MEMO</string>
+    </property>
+   </widget>
+   <widget class="QPushButton" name="ClearSetBtn">
+    <property name="geometry">
+     <rect>
+      <x>590</x>
+      <y>220</y>
+      <width>80</width>
+      <height>25</height>
+     </rect>
+    </property>
+    <property name="text">
+     <string>Clear set</string>
     </property>
    </widget>
   </widget>

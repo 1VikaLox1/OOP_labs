@@ -24,6 +24,7 @@ public:
     int findMax();
     int findP() const;
     bool isElem(int elem);
+    void clear();
     MySet operator+ (MySet);
     MySet operator- (MySet);
     MySet operator/ (MySet);

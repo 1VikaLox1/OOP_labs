@@ -58,7 +58,7 @@ void MySet::addElem(int newElem)
             delete[] elems;
             elems = tempArr;
         }
-        if(freeSize > setSize)
+        else if(freeSize > setSize)
         {
             elems[setSize++] = newElem;
         }
@@ -125,6 +125,17 @@ bool MySet::isElem(int elem) //якщо елемента немає, то пов
         }
     }
     return flagIsElem;
+}
+
+void MySet::clear()
+{
+    if(elems)
+    {
+        delete [] elems;
+        elems = nullptr;
+    }
+    setSize = 0;
+    freeSize = 0;
 }
 
 MySet MySet::operator+(MySet b)
