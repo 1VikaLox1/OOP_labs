@@ -29,13 +29,15 @@ SOURCES += \
         comulativedeposite.cpp \
         main.cpp \
         mainwindow.cpp \
-        timeddeposite.cpp
+        timeddeposite.cpp \
+        vipdeposite.cpp
 
 HEADERS += \
         bankdeposite.h \
         comulativedeposite.h \
         mainwindow.h \
-        timeddeposite.h
+        timeddeposite.h \
+        vipdeposite.h
 
 FORMS += \
         mainwindow.ui
