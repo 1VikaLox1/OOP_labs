@@ -11,11 +11,12 @@ protected:
     double income;
 public:
     BankDeposite();
-
+    virtual ~BankDeposite();
     void startDeposite(double _money, int _months, double percent);
-    double takeMoneyNow(int daysFromStart);
-    double endDeposite();
-    double calculateIncome(double time, int daysInYear = 365);
+    virtual double takeMoneyNow(int daysFromStart);
+    virtual double endDeposite();
+    virtual double calculateIncome(double days);
+    virtual double addMoney(double amount);
     double getMoney() const;
     int getMonths() const;
     double getPercent() const;

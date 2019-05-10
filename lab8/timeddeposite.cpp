@@ -1,19 +1,27 @@
 #include "timeddeposite.h"
 
-TimedDeposite::TimedDeposite()
+TimedDeposite::TimedDeposite():BankDeposite ()
+{
+    money = 0;
+    months = 0;
+    percent = 0;
+    income = 0;
+}
+
+TimedDeposite::~TimedDeposite()
 {
 
 }
 
 double TimedDeposite::takeMoneyNow(int daysFromStart)
 {
-    if(daysFromStart >= months)
+    if(daysFromStart >= months * 30)
     {
-        income = calculateIncome(months);
+        income = calculateIncome(months * 30);
     }
     else
     {
-        income = 0;
+        income = money;
     }
     return income;
 }

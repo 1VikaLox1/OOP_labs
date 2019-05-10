@@ -1,11 +1,15 @@
 #include "bankdeposite.h"
 
-double BankDeposite::calculateIncome(double days, int daysInYear)
+double BankDeposite::calculateIncome(double days) //TODO check formula
 {
-    return (money * percent * days) / daysInYear;
+    return money + (money * (percent / 100) * (days / 30));
 }
 
-//зазвичай, використовуэться для ініціалізації констант. тут просто як приклад
+double BankDeposite::addMoney(double amount)
+{
+
+}
+
 double BankDeposite::getMoney() const
 {
     return money;
@@ -26,7 +30,18 @@ double BankDeposite::getIncome() const
     return income;
 }
 
-BankDeposite::BankDeposite(): money(0), months(0), percent(0), income(0) {}
+BankDeposite::BankDeposite()
+{
+    money = 0;
+    months = 0;
+    percent = 0;
+    income = 0;
+}
+
+BankDeposite::~BankDeposite()
+{
+
+}
 
 void BankDeposite::startDeposite(double _money, int _months, double _percent)
 {

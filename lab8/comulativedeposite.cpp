@@ -1,18 +1,24 @@
 #include "comulativedeposite.h"
 #include "math.h"
 
-double ComulativeDeposite::calculateIncome(double time)
+double ComulativeDeposite::calculateIncome(double days)//TODO check formula for show incom per day
 {
-    return money * pow( (1 + percent), time);
+    int monthsFromStart = static_cast<int>(floor(days / 30));
+    return money * pow( (1 + percent / 100), monthsFromStart);
 }
 
 double ComulativeDeposite::takeMoneyNow(int daysFromStart)
 {
-    income = calculateIncome(daysFromStart / 30); //number of months
+    income = calculateIncome(daysFromStart); //number of months
     return income;
 }
 
 ComulativeDeposite::ComulativeDeposite()
+{
+
+}
+
+ComulativeDeposite::~ComulativeDeposite()
 {
 
 }

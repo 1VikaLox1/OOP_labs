@@ -7,6 +7,7 @@ class VIPDeposite : public ComulativeDeposite
 {
 public:
     VIPDeposite();
+    virtual ~VIPDeposite();
     double addMoney(double amount);
 };
 

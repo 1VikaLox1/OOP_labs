@@ -7,7 +7,7 @@ class TimedDeposite : public BankDeposite
 {
 public:
     TimedDeposite();
-
+    virtual ~TimedDeposite();
     double takeMoneyNow(int daysFromStart);
 };
 

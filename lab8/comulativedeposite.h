@@ -7,7 +7,8 @@ class ComulativeDeposite : public BankDeposite
 {
 public:
     ComulativeDeposite();
-    double calculateIncome(double time);
+    virtual ~ComulativeDeposite();
+    double calculateIncome(double days);
     double takeMoneyNow(int daysFromStart);
 };
 
