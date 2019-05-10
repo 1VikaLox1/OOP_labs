@@ -6,6 +6,26 @@ double BankDeposite::calculateIncome(double days, int daysInYear)
 }
 
 //зазвичай, використовуэться для ініціалізації констант. тут просто як приклад
+double BankDeposite::getMoney() const
+{
+    return money;
+}
+
+int BankDeposite::getMonths() const
+{
+    return months;
+}
+
+double BankDeposite::getPercent() const
+{
+    return percent;
+}
+
+double BankDeposite::getIncome() const
+{
+    return income;
+}
+
 BankDeposite::BankDeposite(): money(0), months(0), percent(0), income(0) {}
 
 void BankDeposite::startDeposite(double _money, int _months, double _percent)

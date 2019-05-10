@@ -15,8 +15,11 @@ public:
     void startDeposite(double _money, int _months, double percent);
     double takeMoneyNow(int daysFromStart);
     double endDeposite();
-
     double calculateIncome(double time, int daysInYear = 365);
+    double getMoney() const;
+    int getMonths() const;
+    double getPercent() const;
+    double getIncome() const;
 };
 
 #endif // BANKDEPOSITE_H

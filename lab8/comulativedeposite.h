@@ -7,6 +7,8 @@ class ComulativeDeposite : public BankDeposite
 {
 public:
     ComulativeDeposite();
+    double calculateIncome(double time);
+    double takeMoneyNow(int daysFromStart);
 };
 
 #endif // COMULATIVEDEPOSITE_H

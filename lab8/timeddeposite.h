@@ -5,7 +5,6 @@
 
 class TimedDeposite : public BankDeposite
 {
-    double income;
 public:
     TimedDeposite();
 
