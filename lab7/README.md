@@ -1,1 +1,1 @@
-# Vika_Lox
+# OOP labs for NULP
