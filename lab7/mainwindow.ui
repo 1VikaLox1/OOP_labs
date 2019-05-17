@@ -42,7 +42,7 @@
      </rect>
     </property>
    </widget>
-   <widget class="QWidget" name="">
+   <widget class="QWidget" name="layoutWidget">
     <property name="geometry">
      <rect>
       <x>570</x>
@@ -62,7 +62,7 @@
      <item>
       <widget class="QPushButton" name="enterElemsBtn">
        <property name="text">
-        <string>Enter from grid</string>
+        <string>Add from grid</string>
        </property>
       </widget>
      </item>
@@ -76,7 +76,7 @@
      <item>
       <widget class="QPushButton" name="EnterMEMOBtn">
        <property name="text">
-        <string>Enter from MEMO</string>
+        <string>Add from MEMO</string>
        </property>
       </widget>
      </item>

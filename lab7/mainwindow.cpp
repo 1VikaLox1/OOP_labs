@@ -92,12 +92,12 @@ void MainWindow::on_EnterMEMOBtn_clicked()
 
 void MainWindow::on_ClearSetBtn_clicked()
 {
+    ui->tableWidget->insertRow(0);
     setA.clear();
 }
 
 void MainWindow::on_findMaxBtn_clicked()
 {
-    //on_clearGrid_clicked();
     QString str;
     str = QString::number(setA.findMax());
     ui->tableWidget->insertRow(1);
@@ -106,7 +106,6 @@ void MainWindow::on_findMaxBtn_clicked()
 
 void MainWindow::on_findMinBtn_clicked()
 {
-    //on_clearGrid_clicked();
     QString str;
     str = QString::number(setA.findMin());
     ui->tableWidget->insertRow(1);
@@ -115,7 +114,6 @@ void MainWindow::on_findMinBtn_clicked()
 
 void MainWindow::on_findPBtn_clicked()
 {
-    //on_clearGrid_clicked();
     QString str;
     str = QString::number(setA.findP());
     ui->tableWidget->insertRow(1);
@@ -179,4 +177,3 @@ void MainWindow::EnterFromTextEdit(MySet &obj)
         }
     }
 }
-
