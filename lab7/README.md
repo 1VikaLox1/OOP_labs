@@ -1,1 +1,1 @@
-# OOP labs for NULP
+# Lab7: work with dynamic memory allocation
