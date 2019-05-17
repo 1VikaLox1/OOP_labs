@@ -55,7 +55,6 @@ void MySet::addElem(int newElem)
                 tempArr[i] = elems[i];
             }
             tempArr[setSize++] = newElem;
-            //setSize++;
             delete[] elems;
             elems = tempArr;
         }

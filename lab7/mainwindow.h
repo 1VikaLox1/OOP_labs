@@ -44,6 +44,10 @@ private slots:
 
     void on_dvideBtn_clicked();
 
+    void PrintOnGrid(MySet);
+
+    void EnterFromTextEdit(MySet &obj);
+
 private:
     MySet setA;
     Ui::MainWindow *ui;
