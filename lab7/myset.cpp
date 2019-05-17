@@ -22,16 +22,17 @@ MySet::MySet(int *arr, int arrSize)
     {
         this->addElem(arr[i]);
     }
+    //TODO recalculate setSize after adding all elems
 }
 
 MySet::MySet(const MySet &obj)
 {
-    this->elems = new int[obj.setSize];
-    freeSize = obj.setSize;
+    elems = new int[obj.freeSize];
+    freeSize = obj.freeSize;
     setSize = obj.setSize;
     for (int i = 0; i < obj.setSize; i++)
     {
-        this->addElem(obj.elems[i]);
+        elems[i] = obj.elems[i];
     }
 }
 
@@ -39,6 +40,7 @@ MySet::~MySet()
 {
     delete[] elems;
 }
+
 
 void MySet::addElem(int newElem)
 {
@@ -48,7 +50,6 @@ void MySet::addElem(int newElem)
         {
             freeSize += 10;
             int *tempArr = new int[freeSize];
-            //tempArr = elems;
             for (int i = 0; i < setSize; i++)
             {
                 tempArr[i] = elems[i];
@@ -65,7 +66,7 @@ void MySet::addElem(int newElem)
     }
 }
 
-void MySet::deleteElem(int indToDel) //TODO перевірка freeSize
+void MySet::deleteElem(int indToDel) //TODO check if too much freeSize
 {
     int *tempArr = new int[freeSize];
     for (int i = 0; i < setSize; i++)
@@ -113,7 +114,7 @@ int MySet::findP() const
     return setSize;
 }
 
-bool MySet::isElem(int elem) //якщо елемента немає, то повератє -1, якщо є, то повертає індекс першого елемента
+bool MySet::isElem(int elem)
 {
     int flagIsElem = false;
     for (int i = 0; i < setSize; i++)
@@ -138,12 +139,12 @@ void MySet::clear()
     freeSize = 0;
 }
 
-MySet MySet::operator+(MySet b)
+MySet MySet::operator+(const MySet &obj)
 {
-    MySet newSet(b);
+    MySet newSet(obj);
     for (int i = 0; i < this->setSize; i++)
     {
-        b.addElem(this->elems[i]);
+        newSet.addElem(this->elems[i]);
     }
     return newSet;
 }
@@ -190,6 +191,7 @@ MySet MySet::operator/(MySet b)
     return newSet;
 }
 
+
 MySet* MySet::operator=(const MySet &b)
 {
     this->setSize = b.setSize;
@@ -200,4 +202,3 @@ MySet* MySet::operator=(const MySet &b)
     }
     return this;
 }
-

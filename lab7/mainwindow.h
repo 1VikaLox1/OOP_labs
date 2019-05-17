@@ -32,8 +32,20 @@ private slots:
 
     void on_ClearSetBtn_clicked();
 
+    void on_findMaxBtn_clicked();
+
+    void on_findMinBtn_clicked();
+
+    void on_findPBtn_clicked();
+
+    void on_plusBtn_clicked();
+
+    void on_minusBtn_clicked();
+
+    void on_dvideBtn_clicked();
+
 private:
-    MySet a;
+    MySet setA;
     Ui::MainWindow *ui;
 };
 

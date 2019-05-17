@@ -13,34 +13,27 @@ MainWindow::~MainWindow()
     delete ui;
 }
 
-Ui::MainWindow *operator<<(Ui::MainWindow *ui, MySet const &a)
+Ui::MainWindow *operator<<(Ui::MainWindow *ui, MySet const &set)
 {
     QString str;
-    if(ui->tableWidget->rowCount() <= 0)
+
+    for (int i = 0; i < set.findP(); i++)
     {
-        ui->tableWidget->insertRow(0);
-    }
-    for (int i = 0; i < a.findP(); i++)
-    {
-        if(ui->tableWidget->columnCount() <= i)
-        {
-            ui->tableWidget->insertColumn(i);
-        }
-        str = QString::number(a.getElems()[i]);
+        str = QString::number(set.getElems()[i]);
         ui->tableWidget->setItem(0, i, new QTableWidgetItem(str));
     }
 
     return ui;
 }
 
-Ui::MainWindow *operator>>(Ui::MainWindow *ui, MySet &a)
+Ui::MainWindow *operator>>(Ui::MainWindow *ui, MySet &set)
 {
     for (int i = 0; i < ui->tableWidget->columnCount(); i++)
     {
         QTableWidgetItem *item = ui->tableWidget->item(0, i);
         if(item)
         {
-            a.addElem(item->text().toInt());
+            set.addElem(item->text().toInt());
         }
     }
     return ui;
@@ -54,18 +47,23 @@ void MainWindow::on_clearGrid_clicked()
     {
         ui->tableWidget->removeColumn(i);
     }
+
+    for(int i = ui->tableWidget->rowCount(); i > 0; i--)
+    {
+        ui->tableWidget->removeRow(i);
+    }
 }
 
 void MainWindow::on_enterElemsBtn_clicked()
 {
-    ui>>a;
+    ui>>setA;
 
 }
 
 void MainWindow::on_ShowElemsBtn_clicked()
 {
     on_clearGrid_clicked();
-    ui<<a;
+    ui<<setA;
 
 }
 
@@ -80,9 +78,9 @@ void MainWindow::on_tableWidget_cellChanged(int row, int column)
 void MainWindow::on_ShowMEMOBtn_clicked()
 {
     QString str;
-    for(int i = 0; i < a.findP(); i++)
+    for(int i = 0; i < setA.findP(); i++)
     {
-        str += QString::number(a.getElems()[i]) + ", ";
+        str += QString::number(setA.getElems()[i]) + ", ";
     }
     ui->plainTextEdit->setPlainText(str);
 }
@@ -95,12 +93,85 @@ void MainWindow::on_EnterMEMOBtn_clicked()
     {
         if(elemsList[i] != ' ' && elemsList[i] != "")
         {
-            a.addElem(elemsList[i].toInt());
+            setA.addElem(elemsList[i].toInt());
         }
     }
 }
 
 void MainWindow::on_ClearSetBtn_clicked()
 {
-    a.clear();
+    setA.clear();
+}
+
+void MainWindow::on_findMaxBtn_clicked()
+{
+    on_clearGrid_clicked();
+    QString str;
+    str = QString::number(setA.findMax());
+    ui->tableWidget->setItem(0, 0, new QTableWidgetItem(str));
+}
+
+void MainWindow::on_findMinBtn_clicked()
+{
+    on_clearGrid_clicked();
+    QString str;
+    str = QString::number(setA.findMin());
+    ui->tableWidget->setItem(0, 0, new QTableWidgetItem(str));
+}
+
+void MainWindow::on_findPBtn_clicked()
+{
+    on_clearGrid_clicked();
+    QString str;
+    str = QString::number(setA.findP());
+    ui->tableWidget->setItem(0, 0, new QTableWidgetItem(str));
+}
+
+
+void MainWindow::on_plusBtn_clicked()
+{
+    MySet setB;
+    ui >> setB;
+    on_EnterMEMOBtn_clicked();
+    MySet c = (setA + setB);
+
+    QString str;
+    ui->tableWidget->insertRow(1);
+    for (int i = 0; i < c.findP(); i++)
+    {
+        str = QString::number(c.getElems()[i]);
+        ui->tableWidget->setItem(1, i, new QTableWidgetItem(str));
+    }
+}
+
+void MainWindow::on_minusBtn_clicked()
+{
+    MySet setB;
+    ui >> setB;
+    on_EnterMEMOBtn_clicked();
+    MySet c = (setA - setB);
+
+    QString str;
+    ui->tableWidget->insertRow(1);
+    for (int i = 0; i < c.findP(); i++)
+    {
+        str = QString::number(c.getElems()[i]);
+        ui->tableWidget->setItem(1, i, new QTableWidgetItem(str));
+    }
+}
+
+void MainWindow::on_dvideBtn_clicked()
+{
+    MySet setB;
+    ui >> setB;
+    on_EnterMEMOBtn_clicked();
+    MySet c = (setA / setB);
+
+    QString str;
+    ui->tableWidget->insertRow(1);
+    for (int i = 0; i < c.findP(); i++)
+    {
+        str = QString::number(c.getElems()[i]);
+        ui->tableWidget->setItem(1, i, new QTableWidgetItem(str));
+    }
 }

@@ -10,7 +10,7 @@ class MySet
 {
 private:
     int *elems;
-    int setSize; //потужність
+    int setSize;
     int freeSize;
 public:
     MySet();
@@ -25,7 +25,7 @@ public:
     int findP() const;
     bool isElem(int elem);
     void clear();
-    MySet operator+ (MySet);
+    MySet operator+ (const MySet &obj);
     MySet operator- (MySet);
     MySet operator/ (MySet);
     MySet* operator= (const MySet &b);
